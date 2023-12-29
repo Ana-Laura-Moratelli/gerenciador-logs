@@ -1,0 +1,57 @@
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    display: flex;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+}
+
+.sidebar {
+    width: 200px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    background-color: #333;
+    color: #fff;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    padding: 10px;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.sidebar a:hover {
+    background-color: #555;
+}
+
+.azul{
+    width: 24px;
+    height: 24px;
+    border-radius: 5px;
+    background: #1C3144;
+}
+.bottom-element {
+    margin-top: auto; /* Empurra o elemento para o final da barra lateral */
+    padding: 10px;
+    background-color: #444;
+}
