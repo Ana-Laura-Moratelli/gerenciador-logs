@@ -1,46 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/css/style.css">
+    <script src="../static/js/script.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <title>Dashboard</title>
     <link rel="shortcut icon" href="../static/img/logo.svg" type="image/x-icon">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Jost:wght@300&display=swap');
-      </style>
 </head>
 <body>
-
-    <div class="wrapper">
+    <div class="container">
         <section class="container-principal">
-        <div class="content">
+        <div class="container-2">
+            <div class="container-3">
             <h1>Visão Geral</h1>
+            <div class="data">
+            <p class="calendario"><span class="material-symbols-outlined">
+                calendar_month
+                </span>Jan 1, 2023 - Dec 31, 2023</p></div>
+            </div>  
             <p>Total de registros</p>
-            <h2>824 <img src="../static/img/grafico1.svg" alt="gráfico aumentando"></h2>
-            <p>Jan 1, 2023 - Dec 31, 2023</p>
-            <section class="content3">
-                <section class="content2">
-                
-                    <div class="azul">
-                    </div>
-                    <h3>657</h3>
-                
-                    <p>Sucesso</p>
-                </section>
-                <section class="content2">
-                
-                    <div class="cinza">
-                    </div>
-                    <h3>167</h3>
-                
-                    <p>Negado</p>
-                </section>  
-            </section>
-            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-            <div id="chart_div"></div>
+            <h2>824  <img class="grafico" src="../static/img/grafico1.svg" alt="gráfico subindo"></h2>
             
+           
+            <!---GRÁFICO-->
+            <div id="chart_div"></div>
             <script>
               google.charts.load('current', {'packages':['bar']});
               google.charts.setOnLoadCallback(drawChart);
@@ -48,10 +34,10 @@
               function drawChart() {
                 var data = google.visualization.arrayToDataTable([
                   ['Year', 'Compras', 'Pagamentos', 'Carrinho'],
-                  ['jan-Mar', 600, 400, 200],
-                  ['Abr-Jun', 234, 324, 235],
+                  ['jan-Mar', 300, 400, 200],
+                  ['Abr-Jun', 230, 350, 235],
                   ['Jul-Set', 620, 120, 300],
-                  ['Out-Dez', 530, 540, 350]
+                  ['Out-Dez', 800, 600, 350]
                 ]);
             
                 var options = {
@@ -60,8 +46,7 @@
                   height: 400,
                   colors: ['#1c3144', '#38AECC', '#0090C1'],
                   backgroundColor: 'transparent',
-                  chartArea: { backgroundColor: '#FCF7FF', } // Define a cor de fundo dentro do gráfico
-        
+                  chartArea: { backgroundColor: '#FCF7FF', } 
                 };
             
                 var chart = new google.charts.Bar(document.getElementById('chart_div'));
@@ -69,140 +54,85 @@
                 chart.draw(data, google.charts.Bar.convertOptions(options));
               }
             </script>
-            
+             <!---FIM GRÁFICO-->
+
             <hr>
             <h2>Históricos de Logs</h2>
-            <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-        }
-
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #f2f2f2;
-        }
-
-        #filtroSelect {
-            margin-bottom: 10px;
-        }
-    </style>
-    <title>Filtro de Tabela</title>
-</head>
-<body>
-
-   <!-- ... (código HTML existente) ... -->
-
-<label for="filtroSelect">Filtrar por:</label>
-<select id="filtroSelect" onchange="filtrarTabela()">
-    <option value="todos">Todos</option>
-    <option value="Pagamento">Pagamentos</option>
-    <option value="Compra">Compras</option>
-    <option value="Carrinho">Carrinho</option>
-</select>
-
-<table id="tabela">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Tipo</th>
-            <th>Usuário</th>
-            <th>Valor</th>
-            <th>Produto</th>
-            <th>Pagamento</th>
-            <th>Hora da transação</th>
-            <th>Navegador</th>
-            <th>Servidor</th>
-            <th>Status</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for resultado in resultados %}
-            <tr class="{{ resultado[1] }}">
-                <td>{{ resultado[0] }}</td>
-                <td>{{ resultado[1] }}</td>
-                <td>{{ resultado[2] }}</td>
-                <td>{{ resultado[3] }}</td>
-                <td>{{ resultado[4] }}</td>
-                <td>{{ resultado[5] }}</td>
-                <td>{{ resultado[6] }}</td>
-                <td>{{ resultado[7] }}</td>
-                <td>{{ resultado[8] }}</td>
-                <td>{{ resultado[9] }}</td>
-            </tr>
-        {% endfor %}
-    </tbody>
-</table>
-
-<script>
-    function filtrarTabela() {
-        var filtroSelect = document.getElementById("filtroSelect");
-        var tabela = document.getElementById("tabela");
-        var linhas = tabela.getElementsByTagName("tr");
-
-        for (var i = 1; i < linhas.length; i++) {
-            var tipoLinha = linhas[i].getElementsByTagName("td")[1].innerText;
-            var filtroSelecionado = filtroSelect.value;
-
-            if (filtroSelecionado === "todos" || tipoLinha === filtroSelecionado) {
-                linhas[i].style.display = "";
-            } else {
-                linhas[i].style.display = "none";
-            }
-        }
-    }
-</script>
-
-
-</body>
-</html>
+            <!---FILTRO DO HISTÓRICO DE LOGS-->
+            <label for="filtroSelect">Filtrar por:</label>
+            <select id="filtroSelect" onchange="filtrarTabela()">
+                <option value="todos">Todos</option>
+                <option value="Pagamento">Pagamentos</option>
+                <option value="Compra">Compras</option>
+                <option value="Carrinho">Carrinho</option>
+            </select>
+            <table id="tabela">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Tipo</th>
+                        <th>Usuário</th>
+                        <th>Valor</th>
+                        <th>Produto</th>
+                        <th>Pagamento</th>
+                        <th>Hora da transação</th>
+                        <th>Navegador</th>
+                        <th>Servidor</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for resultado in resultados %}
+                        <tr class="{{ resultado[1] }}">
+                            <td>{{ resultado[0] }}</td>
+                            <td>{{ resultado[1] }}</td>
+                            <td>{{ resultado[2] }}</td>
+                            <td>{{ resultado[3] }}</td>
+                            <td>{{ resultado[4] }}</td>
+                            <td>{{ resultado[5] }}</td>
+                            <td>{{ resultado[6] }}</td>
+                            <td>{{ resultado[7] }}</td>
+                            <td>{{ resultado[8] }}</td>
+                            <td>{{ resultado[9] }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <!---FIM DO FILTRO DO HISTÓRICO DE LOGS-->
 
         </div>
-       
-      
-       
-       </section>
-       
-        <div class="sidebar">
-            <img class="logo" src="../static/img/logo.svg" alt="logo">
-            <h2>Cadeia de custódia</h2>
-            <!-- Seu menu fixo aqui -->
-            <ul> <li class="pag-ativo"><a href=""><span class="material-symbols-outlined">
-                    grid_view
-                    </span>Dashboard</a></li>
-                <li><a href=""><span class="material-symbols-outlined">
-                    home
-                    </span>Home</a></li>
-               
-                <li><a href=""><span class="material-symbols-outlined">
-                    notifications
-                    </span>Notificações</a></li>
-                <hr>
-                <li><a href=""><span class="material-symbols-outlined">
-                    settings
-                    </span>Ajustes</a></li>
-            </ul>
-        
-        <div class="bottom-element">
-            <span class="material-symbols-outlined">
-                account_circle
-                </span>
-            <p>Admin</p>
-            <p>admin@admin.com</p>
-        </div>
-        </div>
+        </section>
+            <!---MENU LATERAL-->       
+                    <div class="menu">
+                        <div class="menu-logo">
+                        <img class="logo" src="../static/img/logo.svg" alt="logo">
+                        <h2>Cadeia de custódia</h2>
+                        </div>
+                        <!-- Seu menu fixo aqui -->
+                        <ul> <li class="pag-ativo"><a href=""><span class="material-symbols-outlined">
+                                grid_view
+                                </span>Dashboard</a></li>
+                            <li><a href=""><span class="material-symbols-outlined">
+                                home
+                                </span>Home</a></li>
+                        
+                            <li><a href=""><span class="material-symbols-outlined">
+                                notifications
+                                </span>Notificações</a></li>
+                            <hr>
+                            <li><a href=""><span class="material-symbols-outlined">
+                                settings
+                                </span>Ajustes</a></li>
+                        </ul>
+                    
+                    <div class="menu-usuario">
+                        <span id="adm" class="material-symbols-outlined">
+                        account_circle
+                        </span>
+                        <p>Admin</p>
+                    </div>
+                    </div>
     </div>
-
+            <!---FIM MENU LATERAL-->    
 </body>
 </html>

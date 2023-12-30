@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300&display=swap');
 :root{
     --azul-escuro: #1c3144;
     --cinza-escuro: #C4CAD0;
@@ -7,26 +7,57 @@
 }
 *{
     font-family: 'Jost', sans-serif;
+    color: var(--azul-escuro);
 }
-body, html {
+body{
     background-color: var(--branco);
     margin: 0;
     padding: 0;
 }
-h1, h2, p, a{
-    color: var(--azul-escuro);
+h1{
+    font-size: 28px;
 }
-.wrapper {
+h2{
+    font-size: 26px;
+}
+p{
+    font-size: 20px;
+}
+
+
+/* CONTAINERS */
+.container {
     display: flex;
 }
-
-.content {
+.container-2{
     flex: 1;
-    padding: 20px 48px;
+    padding: 20px;
+}
+.container-3{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
 }
 
-.sidebar {
-    padding: 20px;
+.grafico{
+    width: 40px;
+    height: auto;
+}
+.calendario{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    flex-direction: row;
+    gap: 15px;
+}
+.data{
+    margin-left: auto;
+}
+
+/* MENU LATERAL */
+.menu {
+    padding: 10px 15px;
     width: 200px;
     position: fixed;
     top: 0;
@@ -37,72 +68,76 @@ h1, h2, p, a{
     display: flex;
     flex-direction: column;
 }
-.sidebar ul {
+
+.menu-logo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+.menu ul {
     list-style: none;
     padding: 0;
 }
 
-.sidebar li {
+.menu li a {
+    display: flex;
+    align-items: center;
     padding: 10px;
+    flex-direction: row;
+    gap: 15px;
 }
-
-.sidebar a {
+.menu a {
     text-decoration: none;
-    display: block;
-    transition: background-color 0.3s;
 }
 
-
-
-.azul{
-    width: 24px;
-    height: 24px;
-    border-radius: 5px;
-    background: var(--azul-escuro);
-}
-.cinza{
-    width: 24px;
-    height: 24px;
-    border-radius: 5px;
-    background: var(--cinza-escuro);
-}
-.bottom-element {
-    margin-top: auto; /* Empurra o elemento para o final da barra lateral */
-    padding: 10px;
-}
+/* LOGO */
 .logo{
     width: 48px;
     height: 48px;
 }
-.titulo{
-    display: flex;
-    justify-content: center;
-    gap: 700px;
-    flex-direction: row;
-}
-.container-principal{
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-}
-.content2{
-    padding: 64px 0px;
-}
-.content2 p{
-    margin: -16px 0px;
-}
-.azul, .cinza, h3{
-    display: inline-block;
-}
-.content3{
-    display: flex;
-    flex-direction: row;
-    gap: 48px;
-}
 
+/* LINK ATIVO DASHBOARD */
 .pag-ativo{
     background-color: var(--cinza);
     border-radius: 5px;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
    
+}
+/* ADMIN */
+#adm{
+    font-size: 48px;
+}
+.menu-usuario{
+    margin-top: auto; 
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+
+
+
+/* CSS DA TABELA */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+#filtroSelect {
+    margin-bottom: 10px;
 }
