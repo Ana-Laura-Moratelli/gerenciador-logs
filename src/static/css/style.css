@@ -12,6 +12,7 @@
 body{
     background-color: var(--branco);
     margin: 0;
+    margin-left: 18%;
     padding: 0;
 }
 h1{
@@ -22,6 +23,7 @@ h2{
 }
 p{
     font-size: 20px;
+    margin: -10px 0 0;
 }
 
 
@@ -61,7 +63,7 @@ p{
     width: 200px;
     position: fixed;
     top: 0;
-    right: 0;
+    left: 0;
     height: 100%;
     background-color: var(--cinza-escuro);
     color: var(--azul-escuro);
