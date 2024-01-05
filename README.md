@@ -1,6 +1,9 @@
 <h1>:page_with_curl:Gerenciador de Logs</h1>
 O projeto consiste em desenvolver uma tela para um sistema de autenticação e cadeia de custódia, focalizando especificamente no gerenciamento do histórico de logs em um site de compras. A interface projetada terá a capacidade de apresentar detalhes cruciais, como registros de compras, informações de pagamento e conteúdo do carrinho. Além disso, a tela incluirá elementos visuais, como gráficos, para fornecer uma representação visual intuitiva do histórico de atividades. O objetivo é criar uma ferramenta eficaz que permita aos usuários monitorar e compreender facilmente suas interações passadas no site, promovendo assim a transparência e a confiança no ambiente de compras online.
 
+<h2>:movie_camera: MVP</h2>
+
+https://github.com/Ana-Laura-Moratelli/gerenciador-logs/assets/127795446/dfb28f77-40a4-4137-ab62-d686d164c939
 
 <h2>💻 Tecnologias utilizadas: </h2>
 
